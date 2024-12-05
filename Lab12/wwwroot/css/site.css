@@ -20,3 +20,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

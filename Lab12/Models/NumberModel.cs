@@ -1,34 +1,15 @@
-﻿namespace Lab12.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 
-public sealed class NumberModel
+namespace Lab12.Models;
+
+public class NumberModel
 {
-  public int FirstNumber { get; set; }
-  public int SecondNumber { get; set; }
-
-  public int? Result { get; set; }
-
-  public Operations Operation { get; set; }
-
-  public int? Calculate()
-  {
-    switch (Operation)
-    {
-      case Operations.ADD:
-        Result = FirstNumber + SecondNumber;
-        break;
-      case Operations.SUBTRACT:
-        Result = FirstNumber - SecondNumber;
-        break;
-      case Operations.DIVIDE:
-        Result = FirstNumber / SecondNumber;
-        break;
-      case Operations.MULTIPLY:
-        Result = FirstNumber * SecondNumber;
-        break;
-      default:
-        Result = null;
-        break;
-    }
-    return Result;
-  }
+  [BindProperty(Name = "firstNumber")]
+  public int FirstNum { get; set; }
+  
+  [BindProperty(Name = "operation")]
+  public String Operation { get; set; }
+  
+  [BindProperty(Name = "secondNumber")]
+  public int SecondNum { get; set; }
 }
